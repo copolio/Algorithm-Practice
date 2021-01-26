@@ -1,106 +1,113 @@
-#include <iostream>
-#include <vector>
-#include <string>
+#include<iostream>
+#include<algorithm>
 
 using namespace std;
 
-bool HasBall(vector<string> board, char ball) {
-	for (int i = 0; i < board.size(); i++) {
-		for (int j = 0; j < board[0].size(); j++) {
-			if (board[i][j] == ball) return true;
-		}
+class Pt {
+public:
+	int y;
+	int x;
+	Pt() {};
+	Pt(int y, int x) : y(y), x(x) {};
+	void setPt(int y, int x) {
+		this->y = y;
+		this->x = x;
 	}
-	return false;
-}
+};
 
-vector<string> Rotate(vector<string> board) {
-	vector<string> temp(board[0].size(), string(board.size(), '1'));
-	for (int i = 0; i < board.size(); i++) {
-		for (int j = 0; j < board[0].size(); j++) {
-			temp[j][board[0].size() - i - 1] = board[i][j];
-		}
-	}
-	board = temp;
-	return board;
-}
+const int MAX_TRY = 10;
+const int INF = 987654321;
+//상하좌우
+const int dy[4] = { -1, 1, 0, 0 };
+const int dx[4] = { 0, 0, -1, 1 };
 
-vector<string> MoveLeft(vector<string> board) {
-	for (int i = 1; i < board.size()-1; i++) {
-		string row = "";
-		for (int j = 1; j < board[0].size()-1; j++) {
-			if (board[i][j] == '#') {
-				for (int k = 0; k < j - row.size() - 1; k++) {
-					row.push_back('.');
-				}
-				row.push_back('#');
-			}
-			if (board[i][j] == 'O') {
-				for (int k = 0; k < j - row.size() - 1; k++) {
-					row.push_back('.');
-				}
-				row.push_back('O');
-			}
-			if (board[i][j] == 'R' || board[i][j] == 'B') {
-				if (!row.empty() && row.back() == 'O')
-					continue;
-				else
-					row.push_back(board[i][j]);
-			}
-		}
-		for (int j = 0; j < board[0].size() - row.size() - 2; j++) {
-			row.push_back('.');
-		}
-		row = '#' + row + '#';
-		board[i] = row;
-	}
-	return board;
-}
+int N, M;	//세로, 가로
+char MAP[10][10];
+Pt R, B, O;
 
-void DFS(vector<string> board, int &answer, int count) {
-	if (!HasBall(board, 'B')) return;
-	if (!HasBall(board, 'R')) {
-		if (count < answer) {
-			answer = count;
-			cout << endl;
-			for (int i = 0; i < board.size(); i++) {
-				for (int j = 0; j < board[0].size(); j++) {
-					cout << board[i][j];
-				}
-				cout << endl;
+int solve(int cnt, Pt r, Pt b, int dir) {
+	if (cnt > MAX_TRY) {
+		return INF;
+	}
+
+	int ry = r.y;
+	int rx = r.x;
+	int by = b.y;
+	int bx = b.x;
+
+	int res = INF;
+	if (dir != -1) {
+		while (MAP[ry + dy[dir]][rx + dx[dir]] == '.') {
+			ry += dy[dir];
+			rx += dx[dir];
+			if (ry == O.y && rx == O.x) {
+				res = cnt;
+				break;
 			}
-			cout << count << endl;
-			cout << endl;
 		}
-		return;
+		while (MAP[by + dy[dir]][bx + dx[dir]] == '.') {
+			by += dy[dir];
+			bx += dx[dir];
+			if (by == O.y && bx == O.x) {
+				return res = INF;
+			}
+		}
+		if (res != INF) return res;
+
+		//움직임이 없을때 return;
+		if (ry == r.y && rx == r.x && by == b.y && bx == b.x) return res = INF;
+
+		//겹쳤을 때
+		if (ry == by && rx == bx) {
+			if (dir == 0) {
+				if (r.y < b.y) by++;
+				else ry++;
+			}
+			else if (dir == 1) {
+				if (r.y > b.y) by--;
+				else ry--;
+			}
+			else if (dir == 2) {
+				if (r.x < b.x) bx++;
+				else rx++;
+			}
+			else if (dir == 3) {
+				if (r.x > b.x) bx--;
+				else rx--;
+			}
+		}
 	}
-	if (count == 5) {
-		return;
-	}
+
 	for (int i = 0; i < 4; i++) {
-		DFS(MoveLeft(board), answer, count + 1);
-		board = Rotate(board);
+		res = min(res, solve(cnt + 1, Pt(ry, rx), Pt(by, bx), i));
 	}
+
+	return res;
 }
 
 int main() {
-	int answer = 11;
-	int n, m;
-	vector<string> board;
-	
-	cin >> n >> m;
-	for (int i = 0; i < n; i++) {
-		string row;
-		for (int j = 0; j < m; j++) {
-			char c;
-			cin >> c;
-			row += c;
+
+	cin >> N >> M;
+	for (int i = 0; i < N; i++) {
+		for (int j = 0; j < M; j++) {
+			cin >> MAP[i][j];
+			if (MAP[i][j] == 'R') {
+				MAP[i][j] = '.';
+				R.setPt(i, j);
+			}
+			else if (MAP[i][j] == 'B') {
+				MAP[i][j] = '.';
+				B.setPt(i, j);
+			}
+			else if (MAP[i][j] == 'O') {
+				MAP[i][j] = '.';
+				O.setPt(i, j);
+			}
 		}
-		board.push_back(row);
 	}
 
-	DFS(board, answer, 0);
-	if (answer == 11) answer = -1;
-	cout << answer;
+	int res = solve(0, R, B, -1);
+	cout << (res == INF ? -1 : res) << endl;
 
 	return 0;
 }
