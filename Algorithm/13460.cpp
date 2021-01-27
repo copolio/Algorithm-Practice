@@ -85,29 +85,29 @@ int solve(int cnt, Pt r, Pt b, int dir) {
 	return res;
 }
 
-int main() {
-
-	cin >> N >> M;
-	for (int i = 0; i < N; i++) {
-		for (int j = 0; j < M; j++) {
-			cin >> MAP[i][j];
-			if (MAP[i][j] == 'R') {
-				MAP[i][j] = '.';
-				R.setPt(i, j);
-			}
-			else if (MAP[i][j] == 'B') {
-				MAP[i][j] = '.';
-				B.setPt(i, j);
-			}
-			else if (MAP[i][j] == 'O') {
-				MAP[i][j] = '.';
-				O.setPt(i, j);
-			}
-		}
-	}
-
-	int res = solve(0, R, B, -1);
-	cout << (res == INF ? -1 : res) << endl;
-
-	return 0;
-}
+//int main() {
+//
+//	cin >> N >> M;
+//	for (int i = 0; i < N; i++) {
+//		for (int j = 0; j < M; j++) {
+//			cin >> MAP[i][j];
+//			if (MAP[i][j] == 'R') {
+//				MAP[i][j] = '.';
+//				R.setPt(i, j);
+//			}
+//			else if (MAP[i][j] == 'B') {
+//				MAP[i][j] = '.';
+//				B.setPt(i, j);
+//			}
+//			else if (MAP[i][j] == 'O') {
+//				MAP[i][j] = '.';
+//				O.setPt(i, j);
+//			}
+//		}
+//	}
+//
+//	int res = solve(0, R, B, -1);
+//	cout << (res == INF ? -1 : res) << endl;
+//
+//	return 0;
+//}

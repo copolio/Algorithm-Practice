@@ -153,6 +153,7 @@
   <ItemGroup>
     <ClCompile Include="12100.cpp" />
     <ClCompile Include="13460.cpp" />
+    <ClCompile Include="3190.cpp" />
     <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="GPS.cpp" />
   </ItemGroup>
