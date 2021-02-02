@@ -39,5 +39,8 @@
     <ClCompile Include="13458.cpp">
       <Filter>소스 파일\Baekjun</Filter>
     </ClCompile>
+    <ClCompile Include="MenuRenewal.cpp">
+      <Filter>소스 파일\Programmers</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
