@@ -155,9 +155,11 @@
     <ClCompile Include="13458.cpp" />
     <ClCompile Include="13460.cpp" />
     <ClCompile Include="14499.cpp" />
+    <ClCompile Include="14500.cpp" />
     <ClCompile Include="3190.cpp" />
     <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="GPS.cpp" />
+    <ClCompile Include="lockandkey.cpp" />
     <ClCompile Include="MenuRenewal.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

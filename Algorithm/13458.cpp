@@ -1,8 +1,8 @@
-#include <iostream>
-#include <vector>
-
-using namespace std;
-
+//#include <iostream>
+//#include <vector>
+//
+//using namespace std;
+//
 //int main() {
 //	long long N, B, C;
 //	long long minNumOfSupervisors = 0;
