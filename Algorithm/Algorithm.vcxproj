@@ -151,6 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="1.cpp" />
     <ClCompile Include="12100.cpp" />
     <ClCompile Include="13458.cpp" />
     <ClCompile Include="13460.cpp" />
@@ -159,6 +160,8 @@
     <ClCompile Include="14501.cpp" />
     <ClCompile Include="14502.cpp" />
     <ClCompile Include="14503.cpp" />
+    <ClCompile Include="2.cpp" />
+    <ClCompile Include="3.cpp" />
     <ClCompile Include="3190.cpp" />
     <ClCompile Include="Algorithm.cpp" />
     <ClCompile Include="GPS.cpp" />
