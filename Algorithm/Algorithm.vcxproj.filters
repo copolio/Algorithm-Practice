@@ -72,5 +72,8 @@
     <ClCompile Include="2.cpp">
       <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
     </ClCompile>
+    <ClCompile Include="14888.cpp">
+      <Filter>소스 파일\Baekjun</Filter>
+    </ClCompile>
   </ItemGroup>
 </Project>
