@@ -1,79 +1,165 @@
-#include <iostream>
-#include <queue>
-#define abs(x) x >= 0 ? x : -(x)
-using namespace std;
-
-int n, l, r, answer = 0;
-int popMap[50][50] = { 0, };
-int opened[50][50] = { false, };
-int visited[50][50] = { false, };
-int moveDir[4][2] = { {0, 1}, {0, -1}, {1, 0}, {-1, 0} };
-queue<pair<int, int>> q;
-
-void GetInput() {
-	cin >> n >> l >> r;
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			cin >> popMap[i][j];
-		}
-	}
-}
-
-void OpenBorder() {
-	for (int i = 0; i < n - 1; i++) {
-		for (int j = 0; j < n - 1; j++) {
-			int diff1 = abs(popMap[i][j] - popMap[i][j + 1]);
-			int diff2 = abs(popMap[i][j] - popMap[i + 1][j]);
-			if (diff1 >= l && diff1 <= r) {
-				opened[i][j] = true;
-				opened[i][j + 1] = true;
-			}
-			if (diff2 >= l && diff2 <= r) {
-				opened[i][j] = true;
-				opened[i + 1][j] = true;
-			}
-		}
-	}
-
-	for (int i = 0; i < n; i++) {
-		for (int j = 0; j < n; j++) {
-			cout << opened[i][j] << " ";
-		}
-		cout << endl;
-	}
-}
-
-void BFS(int y, int x) {
-	q.push(make_pair(y, x));
-	while (!q.empty()) {
-		int curY = q.front().first;
-		int curX = q.front().second;
-		visited[curY][curX] = true;
-		q.pop();
-		if (curX + 1 < n && !visited[curY][curX + 1] && opened[curY][curX + 1]) {
-			q.push(make_pair(curY, curX + 1));
-		}
-		if (curY + 1 < n && !visited[curY + 1][curX] && opened[curY + 1][curX]) {
-			q.push(make_pair(curY + 1, curX));
-		}
-	}
-}
-
-void MovePop() {
-	for (int i = 0; i < n - 1; i++) {
-		for (int j = 0; j < n - 1; j++) {
-			if (opened[i][j] && !visited[i][j]) {
-				BFS(i, j);
-				answer++;
-			}
-		}
-	}
-}
-
-int main() {
-	GetInput();
-	OpenBorder();
-	MovePop();
-	cout << answer;
-	return 0;
-}
+//#include<iostream>
+//#include<cstring>
+//#include<vector>
+//#include<queue>
+//#include<cmath>
+//
+//#define endl "\n"
+//#define MAX 50
+//using namespace std;
+//
+//int N, L, R;
+//int MAP[MAX][MAX];
+//int Visit[MAX][MAX];
+//int Country_Number;
+//
+//int dx[] = { 0, 0, 1, -1 };
+//int dy[] = { 1, -1, 0, 0 };
+//bool Check = true;
+//
+//void Input()
+//{
+//	cin >> N >> L >> R;
+//	for (int i = 0; i < N; i++)
+//	{
+//		for (int j = 0; j < N; j++)
+//		{
+//			cin >> MAP[i][j];
+//		}
+//	}
+//}
+//
+//bool Can_Combination2(int x, int y)
+//{
+//	for (int i = 0; i < 4; i++)
+//	{
+//		int nx = x + dx[i];
+//		int ny = y + dy[i];
+//		if (nx >= 0 && ny >= 0 && nx < N && ny < N)
+//		{
+//			if (L <= abs(MAP[x][y] - MAP[nx][ny]) && abs(MAP[x][y] - MAP[nx][ny]) <= R) return true;
+//		}
+//	}
+//	return false;
+//}
+//
+//bool Can_Combination(int x, int y, int xx, int yy)
+//{
+//	if (L <= abs(MAP[x][y] - MAP[xx][yy]) && abs(MAP[x][y] - MAP[xx][yy]) <= R) return true;
+//	return false;
+//}
+//
+//void BFS(int a, int b)
+//{
+//	queue<pair<int, int>> Q, Nq;
+//	Q.push(make_pair(a, b));
+//	Nq.push(make_pair(a, b));
+//	Visit[a][b] = true;
+//	int Sum = 0;
+//	int Cnt = 0;
+//
+//	while (Q.empty() == 0)
+//	{
+//		int x = Q.front().first;
+//		int y = Q.front().second;
+//		Q.pop();
+//
+//		Sum = Sum + MAP[x][y];
+//		Cnt = Cnt + 1;
+//		for (int i = 0; i < 4; i++)
+//		{
+//			int nx = x + dx[i];
+//			int ny = y + dy[i];
+//
+//			if (nx < 0 || ny < 0 || nx >= N || ny >= N) continue;
+//			if (Visit[nx][ny] != 0) continue;
+//			if (Can_Combination(x, y, nx, ny) == true)
+//			{
+//				Visit[nx][ny] = 1;
+//				Q.push(make_pair(nx, ny));
+//				Nq.push(make_pair(nx, ny));
+//			}
+//		}
+//	}
+//
+//	int Value = Sum / Cnt;
+//
+//	while (Nq.empty() == 0)
+//	{
+//		int x = Nq.front().first;
+//		int y = Nq.front().second;
+//		Nq.pop();
+//		MAP[x][y] = Value;
+//	}
+//}
+//
+//void Print()
+//{
+//	cout << "########################################" << endl;
+//	for (int i = 0; i < N; i++)
+//	{
+//		for (int j = 0; j < N; j++)
+//		{
+//			if (Visit[i][j] == 0)
+//			{
+//				cout << 0 << " ";
+//			}
+//			else
+//			{
+//				cout << Visit[i][j] << " ";
+//			}
+//		}
+//
+//		cout << "\t\t";
+//		for (int j = 0; j < N; j++)
+//		{
+//			cout << MAP[i][j] << " ";
+//		}
+//		cout << endl;
+//	}
+//	cout << "########################################" << endl;
+//
+//}
+//
+//void Solution()
+//{
+//	int Day = 0;
+//	while (Check)
+//	{
+//		//Print();
+//		Check = false;
+//		for (int i = 0; i < N; i++)
+//		{
+//			for (int j = 0; j < N; j++)
+//			{
+//				if (Visit[i][j] == 0 && Can_Combination2(i, j) == true)
+//				{
+//					BFS(i, j);
+//					Check = true;
+//				}
+//			}
+//		}
+//		if (Check == true) Day++;
+//		memset(Visit, false, sizeof(Visit));
+//
+//	}
+//	cout << Day << endl;
+//}
+//
+//void Solve()
+//{
+//	Input();
+//	Solution();
+//}
+//
+//int main(void)
+//{
+//	ios::sync_with_stdio(false);
+//	cin.tie(NULL);
+//	cout.tie(NULL);
+//
+//	//    freopen("Input.txt", "r", stdin);
+//	Solve();
+//
+//	return 0;
+//}
