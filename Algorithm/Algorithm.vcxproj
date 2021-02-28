@@ -176,6 +176,7 @@
     <ClCompile Include="17143.cpp" />
     <ClCompile Include="17144.cpp" />
     <ClCompile Include="17779.cpp" />
+    <ClCompile Include="17825.cpp" />
     <ClCompile Include="17837.cpp" />
     <ClCompile Include="2.cpp" />
     <ClCompile Include="3.cpp" />
@@ -185,6 +186,7 @@
     <ClCompile Include="GPS.cpp" />
     <ClCompile Include="lockandkey.cpp" />
     <ClCompile Include="MenuRenewal.cpp" />
+    <ClCompile Include="SharedTaxiFare.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
