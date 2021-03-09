@@ -183,6 +183,7 @@
     <ClCompile Include="3190.cpp" />
     <ClCompile Include="5373.cpp" />
     <ClCompile Include="Algorithm.cpp" />
+    <ClCompile Include="dev1.cpp" />
     <ClCompile Include="GPS.cpp" />
     <ClCompile Include="lockandkey.cpp" />
     <ClCompile Include="MenuRenewal.cpp" />

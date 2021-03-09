@@ -22,6 +22,9 @@
     <Filter Include="소스 파일\2021-02-06-Line-Studio-Internship">
       <UniqueIdentifier>{df3c905d-1b5d-46ef-a00a-6a1f8979992b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\2021-03-09-Dev-Sisters">
+      <UniqueIdentifier>{c97ba5dd-d2e1-4e75-bed8-a63e054e66da}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp">
@@ -131,6 +134,9 @@
     </ClCompile>
     <ClCompile Include="SharedTaxiFare.cpp">
       <Filter>소스 파일\Programmers</Filter>
+    </ClCompile>
+    <ClCompile Include="dev1.cpp">
+      <Filter>소스 파일\2021-03-09-Dev-Sisters</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
