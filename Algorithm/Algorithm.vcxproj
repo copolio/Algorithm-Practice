@@ -151,7 +151,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="1.cpp" />
+    <ClCompile Include="Line1.cpp" />
     <ClCompile Include="12100.cpp" />
     <ClCompile Include="13458.cpp" />
     <ClCompile Include="13460.cpp" />
@@ -178,12 +178,14 @@
     <ClCompile Include="17779.cpp" />
     <ClCompile Include="17825.cpp" />
     <ClCompile Include="17837.cpp" />
-    <ClCompile Include="2.cpp" />
-    <ClCompile Include="3.cpp" />
+    <ClCompile Include="Line2.cpp" />
+    <ClCompile Include="Line3.cpp" />
     <ClCompile Include="3190.cpp" />
     <ClCompile Include="5373.cpp" />
     <ClCompile Include="Algorithm.cpp" />
-    <ClCompile Include="dev1.cpp" />
+    <ClCompile Include="devS1.cpp" />
+    <ClCompile Include="devS2.cpp" />
+    <ClCompile Include="devS3.cpp" />
     <ClCompile Include="GPS.cpp" />
     <ClCompile Include="lockandkey.cpp" />
     <ClCompile Include="MenuRenewal.cpp" />

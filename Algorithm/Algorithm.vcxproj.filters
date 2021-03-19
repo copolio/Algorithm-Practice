@@ -66,15 +66,6 @@
     <ClCompile Include="14503.cpp">
       <Filter>소스 파일\Baekjun</Filter>
     </ClCompile>
-    <ClCompile Include="3.cpp">
-      <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
-    </ClCompile>
-    <ClCompile Include="1.cpp">
-      <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
-    </ClCompile>
-    <ClCompile Include="2.cpp">
-      <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
-    </ClCompile>
     <ClCompile Include="14888.cpp">
       <Filter>소스 파일\Baekjun</Filter>
     </ClCompile>
@@ -135,7 +126,22 @@
     <ClCompile Include="SharedTaxiFare.cpp">
       <Filter>소스 파일\Programmers</Filter>
     </ClCompile>
-    <ClCompile Include="dev1.cpp">
+    <ClCompile Include="Line1.cpp">
+      <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
+    </ClCompile>
+    <ClCompile Include="Line2.cpp">
+      <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
+    </ClCompile>
+    <ClCompile Include="Line3.cpp">
+      <Filter>소스 파일\2021-02-06-Line-Studio-Internship</Filter>
+    </ClCompile>
+    <ClCompile Include="devS1.cpp">
+      <Filter>소스 파일\2021-03-09-Dev-Sisters</Filter>
+    </ClCompile>
+    <ClCompile Include="devS2.cpp">
+      <Filter>소스 파일\2021-03-09-Dev-Sisters</Filter>
+    </ClCompile>
+    <ClCompile Include="devS3.cpp">
       <Filter>소스 파일\2021-03-09-Dev-Sisters</Filter>
     </ClCompile>
   </ItemGroup>
