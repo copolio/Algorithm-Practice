@@ -151,6 +151,8 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="20200320Line2.cpp" />
+    <ClCompile Include="20200320Line1.cpp" />
     <ClCompile Include="Line1.cpp" />
     <ClCompile Include="12100.cpp" />
     <ClCompile Include="13458.cpp" />
@@ -189,6 +191,7 @@
     <ClCompile Include="GPS.cpp" />
     <ClCompile Include="lockandkey.cpp" />
     <ClCompile Include="MenuRenewal.cpp" />
+    <ClCompile Include="NumOfRooms.cpp" />
     <ClCompile Include="SharedTaxiFare.cpp" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

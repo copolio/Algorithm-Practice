@@ -25,6 +25,9 @@
     <Filter Include="소스 파일\2021-03-09-Dev-Sisters">
       <UniqueIdentifier>{c97ba5dd-d2e1-4e75-bed8-a63e054e66da}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\2021-03-20-Line-Plus">
+      <UniqueIdentifier>{ef137d5f-334d-42d3-9fd3-94f9a4454784}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp">
@@ -143,6 +146,15 @@
     </ClCompile>
     <ClCompile Include="devS3.cpp">
       <Filter>소스 파일\2021-03-09-Dev-Sisters</Filter>
+    </ClCompile>
+    <ClCompile Include="NumOfRooms.cpp">
+      <Filter>소스 파일\Programmers</Filter>
+    </ClCompile>
+    <ClCompile Include="20200320Line1.cpp">
+      <Filter>소스 파일\2021-03-20-Line-Plus</Filter>
+    </ClCompile>
+    <ClCompile Include="20200320Line2.cpp">
+      <Filter>소스 파일\2021-03-20-Line-Plus</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
