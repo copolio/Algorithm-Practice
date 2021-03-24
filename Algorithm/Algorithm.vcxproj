@@ -184,6 +184,8 @@
     <ClCompile Include="202102062.cpp" />
     <ClCompile Include="202102063.cpp" />
     <ClCompile Include="202103232.cpp" />
+    <ClCompile Include="202103243.cpp" />
+    <ClCompile Include="202103254.cpp" />
     <ClCompile Include="3190.cpp" />
     <ClCompile Include="5373.cpp" />
     <ClCompile Include="Algorithm.cpp" />
