@@ -34,6 +34,9 @@
     <Filter Include="소스 파일\2021-03-26-G">
       <UniqueIdentifier>{83db2a8a-9d3f-4af4-8591-3fd957c8fcd6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="소스 파일\2021-04-08-K">
+      <UniqueIdentifier>{b7fc510b-9fa0-435a-942d-d612dd6914d8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Algorithm.cpp">
@@ -185,6 +188,12 @@
     </ClCompile>
     <ClCompile Include="202103264.cpp">
       <Filter>소스 파일\2021-03-26-G</Filter>
+    </ClCompile>
+    <ClCompile Include="kyobo1.cpp">
+      <Filter>소스 파일\2021-04-08-K</Filter>
+    </ClCompile>
+    <ClCompile Include="kyobo2.cpp">
+      <Filter>소스 파일\2021-04-08-K</Filter>
     </ClCompile>
   </ItemGroup>
 </Project>
