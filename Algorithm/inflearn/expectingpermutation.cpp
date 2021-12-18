@@ -26,9 +26,11 @@ int main() {
                 answer = test;
                 break;
             }
-  } while(next_permutation(test.begin(), test.end()))
+  } while(next_permutation(test.begin(), test.end()));
 
-  cout << answer;
+  for (int i = 0; i < n; i++) {
+      cout << answer[i] << " ";
+  }
 
   return 0;
 }
