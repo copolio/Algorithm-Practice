@@ -1,79 +1,87 @@
 #include <string>
 #include <vector>
 #include <iostream>
+#include <algorithm>
+#include <map>
 #include <sstream>
 
 using namespace std;
 
 vector<int> solution(vector<string> info, vector<string> query)
 {
-    vector<int> answer;
+    vector<int> answer(query.size(), 0);
+    map<string, vector<int>> m;
 
-    for (string cond : query)
+    for (int i = 0; i < info.size(); i++)
     {
-        auto found = cond.find(" and ");
-        string lang = cond.substr(0, found);
+        string token;
+        stringstream ss(info[i]);
+        vector<vector<string>> str(4, vector<string>(2, "-"));
+        int index = 0, score = 0;
 
-        auto temp = found + 5;
-        found = cond.find(" and ", temp);
-        string pos = cond.substr(temp, found - temp);
-
-        temp = found + 5;
-        found = cond.find(" and ", temp);
-        string career = cond.substr(temp, found - temp);
-
-        temp = found + 5;
-        found = cond.find(" ", temp);
-        string food = cond.substr(temp, found - temp);
-
-        int score = stoi(cond.substr(found + 1));
-
-        int cnt = 0;
-
-        for (string applicant : info)
+        while (ss >> token)
         {
-            auto foundA = applicant.find(" ");
-            string langA = applicant.substr(0, foundA);
-
-            auto temp = applicant.find(" ", foundA + 1);
-            string posA = applicant.substr(foundA + 1, temp - foundA - 1);
-
-            foundA = temp;
-            temp = applicant.find(" ", foundA + 1);
-            string careerA = applicant.substr(foundA + 1, temp - foundA - 1);
-
-            foundA = temp;
-            temp = applicant.find(" ", foundA + 1);
-            string foodA = applicant.substr(foundA + 1, temp - foundA - 1);
-
-            foundA = temp;
-            temp = applicant.find(" ", foundA + 1);
-            int scoreA = stoi(applicant.substr(foundA + 1, temp - foundA - 1));
-
-            if (langA != lang && lang != "-")
+            if (index < 4)
             {
-                continue;
+                str[index++][0] = token;
             }
-            if (posA != pos && pos != "-")
+            else
             {
-                continue;
+                score = stoi(token);
             }
-            if (careerA != career && career != "-")
-            {
-                continue;
-            }
-            if (foodA != food && food != "-")
-            {
-                continue;
-            }
-            if (scoreA < score)
-            {
-                continue;
-            }
-            cnt++;
         }
 
-        answer.push_back(cnt);
+        for (int i = 0; i < 2; i++)
+        {
+            string t1, t2, t3, t4;
+            t1 = str[0][i];
+            for (int j = 0; j < 2; j++)
+            {
+                t2 = str[1][j];
+                for (int k = 0; k < 2; k++)
+                {
+                    t3 = str[2][k];
+                    for (int l = 0; l < 2; l++)
+                    {
+                        t4 = str[3][l];
+                        m[t1 + t2 + t3 + t4].push_back(score);
+                    }
+                }
+            }
+        }
+    }
+
+    for (auto itr = m.begin(); itr != m.end(); itr++)
+    {
+        sort(itr->second.begin(), itr->second.end());
+    }
+
+    for (int i = 0; i < query.size(); i++)
+    {
+        string str = "", token;
+        stringstream ss(query[i]);
+        int index = 0, score = 0;
+
+        while (ss >> token)
+        {
+            if (token == "and")
+            {
+                continue;
+            }
+
+            if (index++ < 4)
+            {
+                str += token;
+            }
+            else
+            {
+                score = stoi(token);
+            }
+        }
+
+        auto itr = lower_bound(m[str].begin(), m[str].end(), score);
+
+        answer[i] = m[str].size() - (itr - m[str].begin());
     }
 
     return answer;
